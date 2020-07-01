@@ -47,8 +47,7 @@ class FileStorage():
                             'City': City,
                             'State': State,
                             'Place': Place,
-                            'Review': Review
-                            }
+                            'Review': Review}
                 for x, y in temp.items():
                     model = x.split('.')
                     FileStorage.__objects[x] = new_dict[model[0]](**y)
