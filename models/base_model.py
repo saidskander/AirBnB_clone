@@ -5,22 +5,28 @@ import datetime
 import models
 
 
-class BaseModel():
-    """BaseModel class"""
-
+class BaseModel:
+    """ BaseModel class rbnb project """
     def __init__(self, *args, **kwargs):
-        """ new initialization BaseModel methode """
-        tform = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
-        if len(kwargs) != 0:
-            for x, y in kwargs.items():
-                if x == "created_at" or x == "updated_at":
-                    self.__dict__[x] = datetime.strptime(y, tform)
-                else:
-                    self.__dict__[x] = y
+        """ Init method """
+        if len(kwargs) is not 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = kwargs.get(key)
+                if key == "created_at":
+                    self.created_at = datetime.strptime(kwargs.get(key),
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
+                if key == "updated_at":
+                    self.updated_at = datetime.strptime(kwargs.get(key),
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
+                if key == "my_number":
+                    self.my_number = kwargs.get(key)
+                if key == "name":
+                    self.name = kwargs.get(key)
         else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def save(self):
