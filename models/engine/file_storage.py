@@ -4,7 +4,12 @@ import json
 import os.path
 from os import path
 from models.base_model import BaseModel
-
+from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
 
 class FileStorage():
     """class of FileStorage json strings format"""
@@ -36,6 +41,12 @@ class FileStorage():
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
                 new_dict = {'BaseModel': BaseModel,
+                            'User': User,
+                            'Amenity': Amenity,
+                            'City': City,
+                            'State': State,
+                            'Place': Place,
+                            'Review': Review
                             }
                 for x, y in temp.items():
                     model = x.split('.')
