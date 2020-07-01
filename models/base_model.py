@@ -41,8 +41,8 @@ class BaseModel():
         """returns a dictionary updated/created"""
         mydict = self.__dict__.copy()
         mydict["__class__"] = self.__class__.__name__
-        mydict["created_at"] = self.created_at.isoformat()
         mydict["updated_at"] = self.updated_at.isoformat()
+        mydict["created_at"] = self.created_at.isoformat()
         return mydict
 
     def __str__(self):
