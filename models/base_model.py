@@ -5,32 +5,23 @@ import datetime
 import models
 
 
-class BaseModel():
+class BaseModel:
     """BaseModel class"""
 
     def __init__(self, *args, **kwargs):
-        """initialization method"""
-        if kwargs:
-            if "created_at" not in kwargs.keys():
-                raise Exception("fail create")
-            if "updated_at" not in kwargs.keys():
-                raise Exception("fail update")
-            if "id" not in kwargs.keys():
-                raise Exception("fail id")
-            for x, y in kwargs.items():
-                if x == '__class__':
-                    pass
+        """ new initialization BaseModel methode """
+        tform = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    self.__dict__[k] = datetime.strptime(v, tform)
                 else:
-                    setattr(self, x, y)
-            self.created_at = datetime.datetime.strptime(
-                self.created_at, '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.datetime.strptime(
-                self.updated_at, '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__[k] = v
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
-            models.storage.new(self)
+            models.storage.new(self
 
     def save(self):
         """update updated_at/datetime"""
