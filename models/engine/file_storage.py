@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""class that serializes instances to a JSON file
-   and deserializes JSON file to instances"""
+"""provide file storage class"""
 import json
 import os.path
 from os import path
@@ -8,36 +7,36 @@ from models.base_model import BaseModel
 
 
 class FileStorage():
-    """class to serialize and deserialize classes and json strings"""
+    """class of FileStorage json strings format"""
 
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """public instance method to return the dictionary __objects"""
+        """return the dictionary FileStorage __objects"""
         return FileStorage.__objects
 
     def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id"""
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        """create new instance"""
+        key = "{}.{}".format(obj.__class__.
+                             __name__, obj.id)
         FileStorage.__objects[key] = obj
 
     def save(self):
-        """serializes __objects to the JSON file (path: __file_path)"""
-        with open(FileStorage.__file_path, "w") as outfile:
-            newdict = {}
-            for k, v in FileStorage.__objects.items():
-                newdict[k] = v.to_dict()
-            json.dump(newdict, outfile)
+        """save the function."""
+        with open(FileStorage.__file_path, "w") as File:
+            new_dict = {}
+            for x, y in FileStorage.__objects.items():
+                new_dict[x] = y.to_dict()
+            json.dump(new_dict, File)
 
     def reload(self):
-        """deserializes the JSON file to __objects (only if the JSON
-        file (__file_path) exists ; otherwise, do nothing"""
+        """reload JSON file if it exixt"""
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
-                newdict = {'BaseModel': BaseModel,
-                           }
-                for k, v in temp.items():
-                    model = k.split('.')
-                    FileStorage.__objects[k] = newdict[model[0]](**v)
+                new_dict = {'BaseModel': BaseModel,
+                            }
+                for x, y in temp.items():
+                    model = x.split('.')
+                    FileStorage.__objects[x] = new_dict[model[0]](**y)
