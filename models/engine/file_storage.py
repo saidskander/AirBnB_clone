@@ -41,13 +41,7 @@ class FileStorage():
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
-                new_dict = {'BaseModel': BaseModel,
-                            'User': User,
-                            'Amenity': Amenity,
-                            'City': City,
-                            'State': State,
-                            'Place': Place,
-                            'Review': Review}
+                new_dict = {}
                 for x, y in temp.items():
                     model = x.split('.')
                     FileStorage.__objects[x] = new_dict[model[0]](**y)
