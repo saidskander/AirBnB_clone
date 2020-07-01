@@ -11,6 +11,7 @@ from models.state import State
 from models.place import Place
 from models.review import Review
 
+
 class FileStorage():
     """class of FileStorage json strings format"""
 
