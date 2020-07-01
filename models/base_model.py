@@ -7,6 +7,7 @@ import models
 
 class BaseModel:
     """ BaseModel class rbnb project """
+
     def __init__(self, *args, **kwargs):
         """ Init method """
         if len(kwargs) is not 0:
