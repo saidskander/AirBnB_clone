@@ -3,6 +3,8 @@
 import json
 import os.path
 from os import path
+from models.base_model import BaseModel
+from models.state import State
 
 
 class FileStorage():
@@ -34,7 +36,8 @@ class FileStorage():
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
-                new_dict = {}
+                new_dict = {'BaseModel': BaseModel,
+                            'State': State}
                 for x, y in temp.items():
                     model = x.split('.')
                     FileStorage.__objects[x] = new_dict[model[0]](**y)
