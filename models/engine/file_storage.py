@@ -5,6 +5,11 @@ import os.path
 from os import path
 from models.base_model import BaseModel
 from models.state import State
+from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage():
@@ -32,12 +37,17 @@ class FileStorage():
             json.dump(new_dict, File)
 
     def reload(self):
-        """reload JSON file if it exixt"""
+        """reload from JSON File only if it exixt"""
         if path.isfile(FileStorage.__file_path):
-            with open(FileStorage.__file_path, "r") as json_file:
-                temp = json.load(json_file)
+            with open(FileStorage.__file_path, "r") as File:
+                temp = json.load(File)
                 new_dict = {'BaseModel': BaseModel,
-                            'State': State}
+                            'User': User,
+                            'Amenity': Amenity,
+                            'City': City,
+                            'State': State,
+                            'Place': Place,
+                            'Review': Review}
                 for x, y in temp.items():
                     model = x.split('.')
                     FileStorage.__objects[x] = new_dict[model[0]](**y)
