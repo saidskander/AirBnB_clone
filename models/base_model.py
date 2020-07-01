@@ -5,7 +5,7 @@ import datetime
 import models
 
 
-class BaseModel:
+class BaseModel():
     """BaseModel class"""
 
     def __init__(self, *args, **kwargs):
@@ -15,13 +15,13 @@ class BaseModel:
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
         if len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "created_at" or k == "updated_at":
-                    self.__dict__[k] = datetime.strptime(v, tform)
+            for x, y in kwargs.items():
+                if x == "created_at" or x == "updated_at":
+                    self.__dict__[x] = datetime.strptime(y, tform)
                 else:
-                    self.__dict__[k] = v
+                    self.__dict__[x] = y
         else:
-            models.storage.new(self
+            models.storage.new(self)
 
     def save(self):
         """update updated_at/datetime"""
