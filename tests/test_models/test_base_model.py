@@ -20,7 +20,7 @@ class TestStringMethods(unittest.TestCase):
         file2 = "tests/test_models/test_base_model.py"
         check = style.check_files([file1, file2])
         self.assertEqual(check.total_errors,
-                         0, "errors and warnings")
+                         0)
 
 
 class TestModels(unittest.TestCase):
@@ -78,8 +78,7 @@ class TestModels(unittest.TestCase):
     def test_models_save(self):
         """ testing if the save function works perfectly """
         self.my_model.save()
-        self.assertNotEqual(self.my_model.created_at,
-                            self.my_model.updated_at)
+        self.assertNotEqual(self.my_model.created_at, self.my_model.updated_at)
 
     def test_models_instance(self):
         """ testing if user()1 is instance of User """
