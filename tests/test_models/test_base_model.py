@@ -76,7 +76,7 @@ class TestModels(unittest.TestCase):
         self.assertTrue('file.json')
 
     def test_models_save(self):
-        """ Check if the save function works """
+        """ testing if the save function works perfectly """
         a = self.my_model.updated_at()
         self.my_model.save()
         self.assertNotEqual(a, self.my_model.update_at)
@@ -84,7 +84,7 @@ class TestModels(unittest.TestCase):
                             self.my_model.updated_at)
 
     def test_models_instance(self):
-        """ check if user_1 is instance of User """
+        """ testing if user_1 is instance of User """
         self.assertIsInstance(self.my_model, BaseModel)
 
     def test_models_to_dict(self):
