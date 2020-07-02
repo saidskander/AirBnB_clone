@@ -26,13 +26,13 @@ class TestStringMethods(unittest.TestCase):
 class TestModels(unittest.TestCase):
 
     def setUp(self):
-        """ Set a variable """
+        """ put a variable """
         self.my_model = BaseModel()
         self.my_model.my_number = 55
         print("setUp")
 
     def tearDown(self):
-        """ End variable """
+        """ Ending of the variable """
         print("tearDown")
 
     @classmethod
@@ -42,11 +42,11 @@ class TestModels(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """ Del a Class"""
+        """ Def a Class"""
         print("tearDownClass")
 
     def test_models_doc(self):
-        """ Check the documentation """
+        """ test models docs """
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.__init__.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
@@ -54,16 +54,16 @@ class TestModels(unittest.TestCase):
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
 
     def test_models_name(self):
-        """ Check if name is create"""
+        """ testig names if its created """
         self.my_model.name = 'Holberton'
         self.assertEqual(self.my_model.name, 'Holberton')
 
     def test_models_number(self):
-        """ Check if the number is create """
+        """ testing if the number is created """
         self.assertEqual(self.my_model.my_number, 55)
 
     def test_models_exist(self):
-        """ Check if the json file and methods exists """
+        """ testing if the json & methods are existed """
         self.my_model.save()
         self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.my_model, "__init__"))
@@ -72,7 +72,7 @@ class TestModels(unittest.TestCase):
         self.assertTrue(hasattr(self.my_model, "to_dict"))
 
     def test_models_not_empty(self):
-        """ Check if the json file is not empty """
+        """ testing if the json file is not empty """
         self.assertTrue('file.json')
 
     def test_models_save(self):
