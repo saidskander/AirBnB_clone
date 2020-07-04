@@ -35,9 +35,6 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
-        def emptyline(self):
-        pass
-
     def do_create(self, arg):
         "Create command to create a new instance"
         if not arg:
