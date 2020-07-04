@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     file = None
 
-    def EOF(self, arg):
+    def do_EOF(self, arg):
         "EOF command to exit the program"
         return True
 
