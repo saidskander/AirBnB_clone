@@ -35,8 +35,24 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
+        def emptyline(self):
+        pass
+
+    def do_create(self, arg):
+        "Create command to create a new instance"
+        if not arg:
+            print("** class name missing **")
+        elif arg in my_class:
+            for key, value in my_class.items():
+                if key == arg:
+                    new_instance = my_class[key]()
+            storage.save()
+            print(new_instance.id)
+        else:
+            print("** class doesn't exist **")
+
     def do_destroy(self, arg):
-        'Delete an instance on the class name and class id'
+        "Delete an instance on the class name and class id"
         main_arg = arg.split(" ")
         if not arg:
             print("** class name missing **")
