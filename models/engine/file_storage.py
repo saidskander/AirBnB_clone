@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""provide file storage class"""
+""" provide file storage class """
 import json
 import os.path
 from os import path
