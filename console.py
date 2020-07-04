@@ -6,13 +6,6 @@ from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import json
 
-"""
-my_class = {"BaseModel": BaseModel, "User": User, "State": State,
-            "City": City, "Amenity": Amenity, "Place": Place,
-            "Review": Review}
-
-"""
-
 
 class HBNBCommand(cmd.Cmd):
     """ Command hbnb Class """
