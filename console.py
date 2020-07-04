@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
-def do_destroy(self, arg):
+    def do_destroy(self, arg):
         'Delete an instance on the class name and class id'
         main_arg = arg.split(" ")
         if not arg:
