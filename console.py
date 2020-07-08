@@ -113,5 +113,272 @@ class HBNBCommand(cmd.Cmd):
             if flag == 0:
                 print("** no instance found **")
 
+    def do_count(self, arg):
+        'Count all instances based on class name.'
+        count = 0
+        my_arg = arg.split(" ")
+        if not arg:
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                my_list.append(str(values))
+            print(my_list)
+        elif my_arg[0] not in my_class:
+            print("** class doesn't exist **")
+        else:
+            my_list = []
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                my_key = key.split(".")
+                if my_key[0] == my_arg[0]:
+                    count += 1
+            print(count)
+
+    def do_BaseModel(self, arg):
+        """Send command based on class BaseModel"""
+        the_class = "BaseModel"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1], main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_User(self, arg):
+        """ class User command """
+        the_class = "User"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1], main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_State(self, arg):
+        """ command based on class State """
+        the_class = "State"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1], main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_City(self, arg):
+        """ command based on class City """
+        the_class = "City"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                                        main_arg3[0][9:],
+                                                        main_arg3[1],
+                                                        main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_Amenity(self, arg):
+        """ command class Amenity """
+        the_class = "Amenity"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1], main_arg3[2][1:-1]))
+                    HBNBComand.do_update(HBNBCommand, param)
+
+    def do_Place(self, arg):
+        """ command on class Place """
+        the_class = "Place"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1], main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_Review(self, arg):
+        """ command on class Review """
+        the_class = "Review"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            first = my_arg[1].find('("')
+            seconduni = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:first]
+            my_arg2 = my_arg[1][first + 2: seco]
+            if my_arg1 == "show":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                format_form = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                main_arg3 = arg
+                main_arg3 = main_arg3.replace('"', ' ')
+                main_arg3 = main_arg3.split(',')
+                if len(main_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(main_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(main_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    format_form = ("{} {} {} {}".format(the_class,
+                                   main_arg3[0][9:],
+                                   main_arg3[1],
+                                   main_arg3[2][1:-1]))
+                    HBNBCommand.do_update(HBNBCommand, param)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
