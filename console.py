@@ -49,23 +49,69 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        "Delete an instance on the class name and class id"
-        main_arg = arg.split(" ")
+        "Delete class name and class id method"
+        m_arg = arg.split(" ")
         if not arg:
             print("** class name missing **")
-        elif main_arg[0] not in my_class:
+        elif m_arg[0] not in my_class:
             print("** class doesn't exist **")
-        elif len(main_arg) >= 1:
+        elif len(m_arg) >= 1:
             try:
                 my_objects = FileStorage.all(self)
-                my_key = main_arg[0] + "." + main_arg[1]
+                main_keys = m_arg[0] + "." + m_arg[1]
                 try:
-                    my_objects.pop(my_key)
+                    my_objects.pop(main_keys)
                     storage.save()
                 except KeyError:
                     print("** no instance found **")
             except IndexError:
                     print("** instance id missing **")
+
+    def do_all(self, arg):
+        "Show all instances based on class name"
+        main_arg = arg.split(" ")
+        if not arg:
+            my_list = []
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                my_list.append(str(values))
+            print(my_list)
+        elif main_arg[0] not in my_class:
+            print("** class doesn't exist **")
+        else:
+            my_list = []
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                main_keys = key.split(".")
+                if main_keys[0] == main_arg[0]:
+                    my_list.append(str(values))
+            print(my_list)
+
+    def do_update(self, arg):
+        'Update class name and class id'
+        main_arg = shlex.split(arg)
+        if len(main_arg) == 0:
+            print("** class name missing **")
+        elif len(main_arg) == 1:
+            print("** instance id missing **")
+        elif len(main_arg) == 2:
+            print("** attribute name missing **")
+        elif len(main_arg) == 3:
+            print("** value missing **")
+        elif main_arg[0] not in my_class:
+            print("** class doesn't exist **")
+        else:
+            my_objects = FileStorage.all(self)
+            main_keys = main_arg[0] + "." + main_arg[1]
+            flag = 0
+            for key, values in my_objects.items():
+                if key == main_keys:
+                    flag = 1
+                    my_values = my_objects.get(key)
+                    setattr(values, main_arg[2], main_arg[3])
+                    values.save()
+            if flag == 0:
+                print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
