@@ -1,0 +1,40 @@
+h1 {
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 30px;
+  margin-left: 14px;
+  padding-bottom: 0px;
+}
+
+.places {
+  text-align: left;
+  font-size: 30px;
+}
+
+.h2_inside_place_boxes {
+  font-size: 30px;
+  text-align: center;
+  margin: auto;
+}
+
+article{
+  width: 390px;
+  margin-left: 40px;
+  margin-top: 14px;
+  padding: 20px;
+  border: #FF5A5F 1px solid;
+  border-radius: 4px;
+  display: inline-block;
+  padding-bottom: 30px;
+  margin-right: 20px;
+}
+
+.box_2 {
+  margin-left: 10px;
+}
+
+.box_3{
+  margin-top: 40px;
+  margin-left: 276.8px;
+}
+
