@@ -1,7 +1,19 @@
-body {
+html, body {
 padding: 0;
 margin: 0;
 font-size: 14px;
 color: #484848;
 font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+height: 100px; /* me */
+min-height: 81.2%;/* me */
 }
+ /* all me */
+
+ .container {
+ max-width: 1000px;
+ margin: auto;
+ margin-top: 30px;
+ left: auto;
+ min-height: 100%;/* me */
+ }
+
