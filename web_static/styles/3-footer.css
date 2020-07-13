@@ -5,9 +5,9 @@ width: 100%;
 bottom: -5px;
 border-top: #cccccc solid 1px;
 margin-bottom: -1px;
-position: relative; /* me */
-clear: both; /* me */
-margin-top: 45px; /* me */
+position: relative; 
+clear: both; 
+margin-top: 45px; 
 }
 
 p {

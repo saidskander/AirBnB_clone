@@ -1,19 +1,20 @@
 h1 {
   margin-bottom: 5px;
-  text-align: left;
-  font-size: 30px;
-  margin-left: 14px;
-  padding-bottom: 0px;
+text-align: left;
+font-size: 30px;
+margin-left: 14px;
+padding-bottom: 0px;
 }
+
 .places {
   text-align: left;
   font-size: 30px;
 }
 
 .h2_inside_place_boxes {
-  font-size: 30px;
-  text-align: center;
-  margin: auto;
+font-size: 30px;
+text-align: center;
+margin: auto;
 }
 
 article{
@@ -23,15 +24,21 @@ article{
   padding: 20px;
   border: #FF5A5F 1px solid;
   border-radius: 4px;
-  display: inline-block;
+/*  display: inline-block;*/
   padding-bottom: 0px;
   margin-right: 20px;
+}
 
+.box_1 {
+  padding-bottom: 61px;
+  /*padding-bottom: 40px; /* test */
 }
 
 .box_2 {
-  margin-left: 10px;
+  margin-top: -433px;
+  margin-left: 520px;
 }
+
 .box_3{
   margin-top: 40px;
   margin-left: 276.8px;
@@ -122,13 +129,14 @@ article{
 }
 .description{
   margin-top: -20px;
+  height: 100%;
 }
 
 .description_p {
   text-align: left;
 }
 
-.owner {
-  text-align:left;
+ .owner {
+   text-align:left;
 }
 
